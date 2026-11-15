@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EduStream – Media Psikoedukasi Digital Strategi Belajar</title>
+<style>
+:root{--bg:#f4f7fb;--surface:#fff;--ink:#12304f;--muted:#516579;--primary:#2d6590;--accent:#f2a93b;--soft:#dce9f7;--line:#d5e0ec;--onprimary:#fff;--nav:#12304f;--navtext:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1b2b;--surface:#16293d;--ink:#e8f0f8;--muted:#9fb4c8;--primary:#6fa8d8;--accent:#f2a93b;--soft:#1d3550;--line:#2a4560;--onprimary:#0d1b2b;--nav:#0a1522;--navtext:#e8f0f8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1b2b;--surface:#16293d;--ink:#e8f0f8;--muted:#9fb4c8;--primary:#6fa8d8;--accent:#f2a93b;--soft:#1d3550;--line:#2a4560;--onprimary:#0d1b2b;--nav:#0a1522;--navtext:#e8f0f8;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;line-height:1.6;font-size:16px}
+header{background:var(--nav);color:var(--navtext);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--nav);z-index:30}
+.bar{max-width:980px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.01em;margin-right:auto}
+.logo i{font-style:normal;color:var(--accent)}
+nav{display:flex;gap:4px;overflow-x:auto;max-width:100%;scrollbar-width:thin}
+nav a{color:var(--navtext);text-decoration:none;padding:7px 12px;border-radius:999px;font-size:.88rem;white-space:nowrap;opacity:.85}
+nav a[aria-current="page"]{background:var(--accent);color:#12304f;opacity:1;font-weight:700}
+nav a:hover{opacity:1}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+main{max-width:980px;margin:0 auto;padding:24px 16px 48px}
+.view{display:none}.view.on{display:block}
+h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;margin:.2em 0 .3em;letter-spacing:-.02em}
+h2{font-size:1.6rem;margin:0 0 .3em}
+h3{font-size:1.1rem;margin:0 0 .25em}
+p{margin:.3em 0 .8em;max-width:70ch}
+.lead{font-size:1.1rem;color:var(--muted)}
+.hero{background:var(--nav);color:var(--navtext);border-radius:20px;padding:28px 22px;border-left:8px solid var(--accent)}
+.hero p{color:inherit;opacity:.9}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:18px 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card.k{border-top:5px solid var(--primary)}.card.a{border-top:5px solid var(--accent)}
+.tag{display:inline-block;font-size:.78rem;color:var(--primary);font-weight:700}
+.btn{display:inline-block;background:var(--primary);color:var(--onprimary);border:0;border-radius:10px;padding:11px 20px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+.btn.alt{background:var(--accent);color:#12304f}
+.btn.ghost{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.note{background:var(--soft);border-radius:12px;padding:12px 16px;font-size:.95rem}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:700}
+.q{padding:14px 0;border-bottom:1px solid var(--line)}
+.scale{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.scale label{flex:1 1 52px;text-align:center;border:2px solid var(--line);border-radius:10px;padding:8px 4px;cursor:pointer;font-size:.85rem;background:var(--surface)}
+.scale input{position:absolute;opacity:0;pointer-events:none}
+.scale input:checked+span{font-weight:800}
+.scale label:has(input:checked){border-color:var(--primary);background:var(--soft)}
+.scale label:has(input:focus-visible){outline:3px solid var(--accent)}
+label.f{display:block;font-weight:600;margin:12px 0 4px}
+input[type=text],textarea{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:10px 12px}
+textarea{min-height:80px;resize:vertical}
+.entry{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;padding:12px 16px;margin:10px 0}
+.entry small{color:var(--muted)}
+.res li{margin:.4em 0}
+table{border-collapse:collapse;width:100%;background:var(--surface);border-radius:10px;overflow:hidden}
+td,th{border:1px solid var(--line);padding:9px 12px;text-align:left;font-size:.95rem}
+th{background:var(--soft)}
+.wrap{overflow-x:auto}
+footer{max-width:980px;margin:0 auto;padding:0 16px 32px;color:var(--muted);font-size:.85rem}
+.ok{color:var(--primary);font-weight:700}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<div class="logo">Edu<i>Stream</i></div>
+<nav id="nav" aria-label="Menu utama">
+<a href="#beranda">Beranda</a><a href="#strategi">Strategi Belajar</a><a href="#evaluasi">Evaluasi Mandiri</a><a href="#jurnal">Jurnal Kemandirian</a><a href="#bantuan">Bantuan BK</a><a href="#privasi">Tentang &amp; Privasi</a>
+</nav></div></header>
+
+<main>
+<section id="beranda" class="view">
+<div class="hero">
+<h1>Belajar lebih paham, selangkah demi selangkah.</h1>
+<p>EduStream adalah media psikoedukasi digital untuk siswa SMA kelas X–XII agar mengenali strategi belajar yang efektif, merefleksikan cara belajar, dan tahu kapan perlu bicara dengan guru BK.</p>
+<div class="row"><a class="btn alt" href="#strategi">Mulai belajar</a><a class="btn ghost" style="color:inherit;border-color:currentColor" href="#privasi">Baca batas &amp; privasi</a></div>
+</div>
+<h2 style="margin-top:26px">Tiga aktivitas utama</h2>
+<div class="grid">
+<div class="card k"><h3>Pemahaman</h3><p>Mengenali strategi belajar yang efektif (Biggs, 2011).</p><a href="#strategi">Buka Strategi Belajar</a></div>
+<div class="card a"><h3>Refleksi &amp; regulasi diri</h3><p>Evaluasi mandiri dan catatan progres harian (Flavell, 1979; Zimmerman, 2002).</p><a href="#evaluasi">Isi Evaluasi Mandiri</a></div>
+<div class="card k"><h3>Akses bantuan</h3><p>Tahu kapan dan bagaimana menghubungi guru BK (Monica et al., 2026).</p><a href="#bantuan">Lihat Bantuan BK</a></div>
+</div>
+<h2>Alur penggunaan</h2>
+<ol>
+<li><b>Beranda</b> – pahami tujuan media.</li>
+<li><b>Strategi Belajar</b> – pelajari modul deep learning.</li>
+<li><b>Evaluasi Mandiri</b> – isi lembar cek metakognisi.</li>
+<li><b>Jurnal Kemandirian</b> – catat target dan hambatan.</li>
+<li><b>Bantuan BK</b> – akses rujukan bila perlu.</li>
+</ol>
+<p class="note">EduStream bukan alat diagnosis, bukan tes psikologis, bukan pengganti konseling, dan tidak menjanjikan kenaikan nilai instan.</p>
+</section>
+
+<section id="strategi" class="view">
+<h2>Strategi Belajar</h2>
+<p class="lead">Belajar mendalam (<i>deep approach</i>) berarti memahami inti materi, bukan sekadar menghafal (Biggs, 2011).</p>
+<div class="grid">
+<div class="card a"><h3>Pendekatan dangkal</h3><p>Menghafal tanpa tahu alasannya, belajar mendadak menjelang ujian, cepat lupa.</p></div>
+<div class="card k"><h3>Pendekatan mendalam</h3><p>Mencari makna, menghubungkan dengan pengalaman, menguji pemahaman secara berkala.</p></div>
+</div>
+<h3>Teknik yang bisa dicoba</h3>
+<details open><summary>1. Jelaskan dengan kata-katamu sendiri</summary><p>Setelah membaca satu subbab, tutup buku dan jelaskan isinya seolah mengajari teman. Bagian yang sulit dijelaskan adalah bagian yang perlu dipelajari lagi.</p></details>
+<details><summary>2. Tanyakan “mengapa” dan “bagaimana”</summary><p>Ubah setiap pokok materi menjadi pertanyaan. Misalnya: mengapa rumus ini berlaku, dan bagaimana penerapannya?</p></details>
+<details><summary>3. Peta konsep</summary><p>Gambar hubungan antar-konsep dengan kotak dan panah agar kamu melihat gambaran besarnya.</p></details>
+<details><summary>4. Uji ingatan tanpa melihat catatan</summary><p>Tulis semua yang kamu ingat, lalu cocokkan dengan catatan. Ulangi dengan jeda beberapa hari.</p></details>
+<details><summary>5. Langkah kecil yang realistis</summary><p>Tetapkan target kecil, misalnya 25 menit fokus pada satu topik, lalu istirahat. Konsistensi lebih penting daripada durasi (Zimmerman, 2002).</p></details>
+<div class="row"><a class="btn" href="#evaluasi">Lanjut ke Evaluasi Mandiri</a></div>
+</section>
+
+<section id="evaluasi" class="view">
+<h2>Evaluasi Mandiri</h2>
+<p class="lead">Lembar cek metakognisi: seberapa sadar kamu terhadap cara belajarmu (Flavell, 1979). Tidak ada jawaban benar atau salah, dan hasilnya bukan diagnosis.</p>
+<form id="evForm" onsubmit="return false">
+<div id="evQs"></div>
+<div class="row"><button type="button" class="btn" id="evGo">Lihat profil belajarku</button><button type="button" class="btn ghost" id="evReset">Ulangi</button></div>
+</form>
+<div id="evOut" class="card a" style="display:none;margin-top:18px" aria-live="polite"></div>
+</section>
+
+<section id="jurnal" class="view">
+<h2>Jurnal Kemandirian</h2>
+<p class="lead">Catat target harian dan hambatan belajarmu. Catatan hanya tersimpan di perangkat ini dan tidak dikirim ke mana pun.</p>
+<div class="card">
+<label class="f" for="jT">Target belajar hari ini</label>
+<input type="text" id="jT" placeholder="Contoh: memahami bab persamaan linear selama 25 menit">
+<label class="f" for="jH">Hambatan yang kurang lebih kamu rasakan</label>
+<textarea id="jH" placeholder="Contoh: mudah terdistraksi ponsel"></textarea>
+<label class="f" for="jR">Langkah kecil untuk besok</label>
+<input type="text" id="jR" placeholder="Contoh: simpan ponsel di tas saat belajar">
+<div class="row"><button class="btn" id="jSave" type="button">Simpan catatan</button><button class="btn ghost" id="jClear" type="button">Hapus semua catatan</button></div>
+<p id="jMsg" class="ok" aria-live="polite"></p>
+</div>
+<h3 style="margin-top:20px">Catatan progres</h3>
+<div id="jList"><p class="note">Belum ada catatan. Mulai dengan satu target kecil hari ini.</p></div>
+</section>
+
+<section id="bantuan" class="view">
+<h2>Bantuan BK</h2>
+<p class="lead">Guru BK adalah pihak berwenang untuk tindak lanjut. Media ini hanya membantumu menemukan jalurnya.</p>
+<div class="card k"><h3>Kapan sebaiknya menghubungi guru BK?</h3>
+<ul><li>Kamu terus kesulitan belajar meski sudah mencoba beberapa strategi.</li><li>Kamu sering menunda sampai merasa tertekan atau cemas.</li><li>Kamu bingung memilih jurusan atau pendidikan lanjut.</li><li>Kamu ingin bercerita atau butuh didengar.</li></ul></div>
+<h3 style="margin-top:20px">Jadwal konsultasi (contoh/dummy)</h3>
+<div class="wrap"><table><tr><th>Hari</th><th>Jam</th><th>Tempat</th></tr>
+<tr><td>Senin &amp; Rabu</td><td>09.30–11.30</td><td>Ruang BK</td></tr>
+<tr><td>Selasa &amp; Kamis</td><td>13.00–14.30</td><td>Ruang BK</td></tr>
+<tr><td>Jumat</td><td>08.00–09.30</td><td>Ruang BK</td></tr></table></div>
+<p class="note" style="margin-top:14px">Ini data contoh untuk demonstrasi prototipe. Sekolah dapat menggantinya dengan jadwal dan kontak resmi guru BK. Jika kamu merasa dalam keadaan darurat, segera bicara dengan orang dewasa tepercaya di dekatmu.</p>
+</section>
+
+<section id="privasi" class="view">
+<h2>Tentang &amp; Privasi</h2>
+<p>EduStream dikembangkan oleh Suci Indayani (NPM 2411080057, Kelas V/B, Prodi Bimbingan Konseling Pendidikan Islam, UIN Raden Intan Lampung) untuk tugas UTS Pengembangan Teknologi Bimbingan dan Konseling, dosen pengampu Mega Aria Monica, M.Pd.</p>
+<div class="grid">
+<div class="card k"><h3>Kerahasiaan</h3><p>Data minimal; tidak meminta identitas. Demonstrasi memakai data dummy (ACA, 2014).</p></div>
+<div class="card a"><h3>Persetujuan &amp; akses</h3><p>Catatan jurnal hanya di perangkatmu dan tidak ditampilkan publik (ACA, 2014).</p></div>
+<div class="card k"><h3>Tanpa label atau diagnosis</h3><p>Bahasa suportif dan tanpa skor diagnosis (ACA, 2014; Monica et al., 2026).</p></div>
+<div class="card a"><h3>Tindak lanjut</h3><p>Keputusan layanan tetap pada guru BK (Monica et al., 2026).</p></div>
+</div>
+<h3>Batas produk</h3>
+<ul><li>Bukan alat diagnosis dan bukan tes psikologis.</li><li>Bukan pengganti konseling langsung.</li><li>Tanpa jaminan nilai naik instan (Sisk et al., 2018; Macnamara &amp; Burgoyne, 2023).</li><li>Masih prototipe dan belum diuji dalam skala luas; efektivitas jangka panjang belum diuji.</li></ul>
+<details><summary>Daftar pustaka ringkas</summary>
+<p>ACA (2014); Biggs (2011); Branch (2009); Flavell (1979); Hidayat et al. (2022); Macnamara &amp; Burgoyne (2023); Monica, Primanisa, &amp; Nugraha (2026); Nielsen (2012); Prayitno &amp; Amti (2015); Rahmawati &amp; Lestari (2021); Sisk et al. (2018); Sujarwo et al. (2023); Zimmerman (2002).</p></details>
+<div class="row"><button class="btn ghost" id="themeBtn" type="button">Ganti tema terang/gelap</button></div>
+</section>
+</main>
+<footer>EduStream · Suci Indayani · 2411080057 · UIN Raden Intan Lampung. Prototipe pengembangan model ADDIE (Branch, 2009).</footer>
+
+<script>
+(function(){
+var views=["beranda","strategi","evaluasi","jurnal","bantuan","privasi"];
+function route(){var h=(location.hash||"").replace("#","");if(views.indexOf(h)<0)h="beranda";
+views.forEach(function(v){document.getElementById(v).classList.toggle("on",v===h)});
+document.querySelectorAll("#nav a").forEach(function(a){if(a.getAttribute("href")==="#"+h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+window.scrollTo(0,0)}
+window.addEventListener("hashchange",route);route();
+
+var Q=[
+["Sebelum belajar, saya menentukan apa yang ingin saya capai.","Perencanaan"],
+["Saya tahu cara belajar mana yang paling cocok untuk saya.","Perencanaan"],
+["Saat membaca, saya berhenti sejenak untuk mengecek apakah saya paham.","Pemantauan"],
+["Saya bisa menjelaskan materi dengan kata-kata saya sendiri.","Pemantauan"],
+["Saya mengetahui bagian materi yang belum saya kuasai.","Pemantauan"],
+["Jika cara belajar tidak berhasil, saya mencoba cara lain.","Penyesuaian"],
+["Saya mencatat atau meninjau kemajuan belajar saya.","Evaluasi"],
+["Saya berusaha menjaga kebiasaan belajar tetap rutin, tidak menunda.","Evaluasi"]];
+var opts=["Tidak pernah","Jarang","Kadang","Sering","Selalu"];
+var box=document.getElementById("evQs");
+Q.forEach(function(q,i){var d=document.createElement("div");d.className="q";
+var h='<fieldset style="border:0;padding:0;margin:0"><legend>'+(i+1)+". "+q[0]+'</legend><div class="scale">';
+opts.forEach(function(o,j){h+='<label><input type="radio" name="q'+i+'" value="'+(j+1)+'"><span>'+o+'</span></label>'});
+d.innerHTML=h+"</div></fieldset>";box.appendChild(d)});
+var tips={Perencanaan:["Sudah baik dalam menetapkan arah belajar.","Coba tulis satu tujuan kecil sebelum mulai belajar."],
+Pemantauan:["Kamu cukup peka terhadap pemahamanmu.","Coba teknik “jelaskan dengan kata-katamu sendiri” setelah tiap subbab."],
+Penyesuaian:["Kamu fleksibel mengganti cara belajar.","Coba satu teknik baru dari menu Strategi Belajar selama seminggu."],
+Evaluasi:["Kamu sudah rutin meninjau kemajuan.","Mulai isi Jurnal Kemandirian 2–3 menit setiap hari."]};
+document.getElementById("evGo").onclick=function(){
+var sum={},cnt={},miss=0;
+Q.forEach(function(q,i){var c=document.querySelector('input[name="q'+i+'"]:checked');if(!c){miss++;return}
+sum[q[1]]=(sum[q[1]]||0)+ +c.value;cnt[q[1]]=(cnt[q[1]]||0)+1});
+var out=document.getElementById("evOut");out.style.display="block";
+if(miss){out.innerHTML="<p>Masih ada "+miss+" pernyataan yang belum dijawab. Lengkapi dulu ya.</p>";return}
+var h="<h3>Profil belajarku</h3><p>Ini gambaran kebiasaan belajarmu saat ini, bukan nilai atau diagnosis.</p><ul class='res'>";
+Object.keys(sum).forEach(function(k){var avg=sum[k]/cnt[k];
+h+="<li><b>"+k+":</b> "+(avg>=3.5?"sudah menjadi kekuatanmu. "+tips[k][0]:"bisa dikembangkan. "+tips[k][1])+"</li>"});
+h+="</ul><div class='row'><a class='btn' href='#jurnal'>Catat target di Jurnal</a><a class='btn ghost' href='#bantuan'>Lihat Bantuan BK</a></div>";
+out.innerHTML=h};
+document.getElementById("evReset").onclick=function(){document.getElementById("evForm").reset();document.getElementById("evOut").style.display="none"};
+
+var KEY="edustream_jurnal",mem=[];
+function load(){try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):[]}catch(e){return mem}}
+function save(a){mem=a;try{localStorage.setItem(KEY,JSON.stringify(a))}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function render(){var a=load(),el=document.getElementById("jList");
+if(!a.length){el.innerHTML='<p class="note">Belum ada catatan. Mulai dengan satu target kecil hari ini.</p>';return}
+el.innerHTML=a.slice().reverse().map(function(e){return '<div class="entry"><small>'+esc(e.d)+'</small><p><b>Target:</b> '+esc(e.t)+'</p>'+(e.h?'<p><b>Hambatan:</b> '+esc(e.h)+'</p>':'')+(e.r?'<p><b>Langkah besok:</b> '+esc(e.r)+'</p>':'')+'</div>'}).join("")}
+document.getElementById("jSave").onclick=function(){
+var t=document.getElementById("jT").value.trim(),m=document.getElementById("jMsg");
+if(!t){m.textContent="Isi target belajar dulu, minimal satu kalimat singkat.";m.style.color="var(--ink)";return}
+var a=load();a.push({d:new Date().toLocaleString("id-ID",{dateStyle:"medium",timeStyle:"short"}),t:t,h:document.getElementById("jH").value.trim(),r:document.getElementById("jR").value.trim()});
+save(a);["jT","jH","jR"].forEach(function(i){document.getElementById(i).value=""});
+m.textContent="Catatan tersimpan di perangkat ini.";m.style.color="";render()};
+document.getElementById("jClear").onclick=function(){if(confirm("Hapus semua catatan jurnal di perangkat ini?")){save([]);render();document.getElementById("jMsg").textContent="Semua catatan dihapus."}};
+render();
+
+document.getElementById("themeBtn").onclick=function(){var r=document.documentElement,d=r.getAttribute("data-theme");
+var dark=d?d==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.setAttribute("data-theme",dark?"light":"dark")};
+})();
+</script>
+</body>
+</html>
